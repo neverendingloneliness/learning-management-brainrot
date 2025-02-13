@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('materi_murids', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('student_id')->constrained()->onDelete('cascade');
+            $table->foreignId('materi_id')->constrained()->onDelete('cascade');
+            $table->enum('status_completion', ['complete', 'in-progress']);
             $table->timestamps();
         });
     }
