@@ -31,4 +31,22 @@ class AuthController extends Controller
         return redirect()->route('register')->with('success', 'registration succeded');
 
     }
+
+    public function showLoginForm(){
+        return view('auth.login.login');
+    }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            return back()->withErrors(['email' => 'Invalid credentials'])->withInput();
+        }
+
+        return redirect()->route('login')->with('success', 'Login successful!');
+    }
 }

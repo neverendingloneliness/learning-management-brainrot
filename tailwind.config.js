@@ -5,7 +5,11 @@ export default {
     "./resources/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      transformStyle : {
+        '3d' : 'preserve-3d'
+      }
+    },
   },
   plugins: [],
 }
