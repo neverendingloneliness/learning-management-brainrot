@@ -16,7 +16,6 @@
             <li><a href="#HOME">Home</a></li>
             <li><a href="#ABOUTt">About</a></li>
             <li><a href="#PROGRAMSTUDI">Program Studi</a></li>
-            <li><a href="#LULUSAN">Lulusan</a></li>
         </ul>
         <a class="font-semibold py-1 border-2 border-t-red-600 border-b-pink-700   border-l-red-600 border-r-pink-700 px-4 rounded-full " href="{{route('login')}} ">
             SignIn
@@ -98,5 +97,8 @@
             </div>
         </div>
     </div>
+
+    {{-- FOOTER --}}
+    @include('component.normal.footer')
 </body>
 </html>

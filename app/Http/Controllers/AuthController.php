@@ -47,6 +47,6 @@ class AuthController extends Controller
             return back()->withErrors(['email' => 'Invalid credentials'])->withInput();
         }
 
-        return redirect()->route('login')->with('success', 'Login successful!');
+        return redirect()->route('dashboard')->with('success', 'Login successful!');
     }
 }
