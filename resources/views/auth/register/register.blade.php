@@ -11,16 +11,16 @@
 <body class="bg-black">
     @include('component.auth.navbar.navauth')
     <div class="flex gap-16  items-center justify-center min-h-screen">
-        <h1 class="text-4xl text-white font-bold">LMB REGISTER</h1>
+        <h1 class="text-4xl text-white font-bold">LMB <span class="font-semibold border-2 py-1 border-t-red-600 border-b-pink-700   border-l-red-600 border-r-pink-700 px-4 rounded-full text-white">REGISTER</span> </h1> 
         <form method="POST"  action="{{ route('register') }}" class="flex flex-col gap-6 ">
             @csrf
             <div class="flex flex-col items-start gap-5">
                 <label for="" class="text-white font-semibold">Name :</label>
-                <input type="text" placeholder="Enter your Name" name="name">
+                <input type="text" class="bg-black text-white" placeholder="Enter your Name" name="name">
             </div>
             <div class="flex flex-col items-start gap-5">
                 <label for="" class="font-semibold text-white">Email :</label>
-                <input type="email" placeholder="Enter your Email" name="email">
+                <input type="email" class="bg-black text-white" placeholder="Enter your Email" name="email">
             </div>
             <div class="flex flex-col items-start gap-5">
                 <label for="" class="font-semibold text-white">Password : </label>
@@ -28,7 +28,7 @@
                     <input type="password" id="password" 
                            placeholder="Enter your Password" 
                            name="password"
-                           class="" >
+                           class="bg-black text-white" >
                     <button type="button" id="togglePassword" 
                             class="fa-solid fa-eye text-white">
                     </button>
@@ -36,12 +36,12 @@
             </div>
             <div class="flex flex-col items-start gap-5">
                 <label for="" class="font-semibold text-white">Confirm Password : </label>
-                <input type="password" id="confirm_password" name="password_confirmation" placeholder="Confirm your Password" required>
+                <input type="password" id="confirm_password" class="bg-black text-white" name="password_confirmation" placeholder="Confirm your Password" required>
             </div>
 
             <div class="flex gap-9 mt-4">
-                <button type="submit" class="text-white">Submit</button>
-                <a href="/login" class="text-gray-400">Sudah Punya Akun?</a>
+                <button type="submit" class="text-white font-semibold">Submit</button>
+                <a href="/login" class="text-gray-400 font-semibold">Sudah Punya Akun?</a>
             </div>
         </form>
     </div>

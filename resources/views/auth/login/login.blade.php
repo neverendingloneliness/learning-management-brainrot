@@ -11,28 +11,28 @@
 <body class="bg-black ">
     @include('component.auth.navbar.navauth')
     <div class="flex gap-16  items-center justify-center min-h-screen">
-        <h1 class="text-4xl text-white font-bold">LMB LOGIN</h1>
+        <h1 class="text-4xl text-white font-bold">LMB <span class="font-semibold border-2 py-1 border-t-red-600 border-b-pink-700   border-l-red-600 border-r-pink-700 px-4 rounded-full text-white">LOGIN</span> </h1> 
         <form method="POST" action="{{route('login')}}" class="flex flex-col gap-6 ">
             @csrf
             <div class="flex flex-col items-start gap-5">
                 <label for=""  class="text-white font-semibold">Email : </label>
-                <input type="email" name="email" placeholder="Enter your Email">
+                <input type="email" class="bg-black text-white" name="email" placeholder="Enter your Email">
             </div>
             <div class="flex flex-col items-start gap-5">
-                <label for="" name="password" class="font-semibold text-white">Password : </label>
+                <label for="" name="password" class=" font-semibold text-white">Password : </label>
                 <div class="flex gap-2 items-center justify-center">
                     <input type="password" id="password" 
                            placeholder="Enter your Password" 
                            name="password"
-                           class="" >
+                           class="bg-black text-white" >
                     <button type="button" id="togglePassword" 
                             class="fa-solid fa-eye text-white">
                     </button>
                 </div>
             </div>
             <div class="flex gap-9 mt-4">
-                <button type="submit" class="text-white">Submit</button>
-                <a href="{{route('register')}}" class="text-gray-400">Belum Punya Akun?</a>
+                <button type="submit" class="text-white font-semibold">Submit</button>
+                <a href="{{route('register')}}" class="text-gray-400 font-semibold">Belum Punya Akun?</a>
             </div>
         </form>
     </div>

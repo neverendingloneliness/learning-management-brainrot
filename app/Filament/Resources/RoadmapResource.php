@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\KelasResource\Pages;
-use App\Filament\Resources\KelasResource\RelationManagers;
-use App\Models\Kelas;
+use App\Filament\Resources\RoadmapResource\Pages;
+use App\Filament\Resources\RoadmapResource\RelationManagers;
+use App\Models\Roadmap;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Form;
@@ -14,11 +14,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class KelasResource extends Resource
+class RoadmapResource extends Resource
 {
-    protected static ?string $navigationGroup = 'Kelas dan Materi';
-
-    protected static ?string $model = Kelas::class;
+    protected static ?string $model = Roadmap::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -26,16 +24,15 @@ class KelasResource extends Resource
     {
         return $form
             ->schema([
-                FileUpload::make('gambar_kelas')
+                FileUpload::make('gambar_roadmap')
                     ->openable()
-                    ->directory('gambar_kelas')
+                    ->directory('gambar_roadmap')
                     ->image()
                 ,
-                Forms\Components\TextInput::make('nama_kelas')
+                Forms\Components\TextInput::make('title_roadmap')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->required()
+                Forms\Components\Textarea::make('deskripsi_roadmap')
                     ->columnSpanFull(),
             ]);
     }
@@ -46,11 +43,11 @@ class KelasResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('nama_kelas')
-                    ->searchable(),
-                Tables\Columns\ImageColumn::make('gambar_kelas')
+                Tables\Columns\ImageColumn::make('gambar_roadmap')
                     ->disk('public'),
-                Tables\Columns\TextColumn::make('description')
+                Tables\Columns\TextColumn::make('title_roadmap')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('deskripsi_roadmap')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -65,7 +62,6 @@ class KelasResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\DeleteAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -85,9 +81,9 @@ class KelasResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListKelas::route('/'),
-            'create' => Pages\CreateKelas::route('/create'),
-            'edit' => Pages\EditKelas::route('/{record}/edit'),
+            'index' => Pages\ListRoadmaps::route('/'),
+            'create' => Pages\CreateRoadmap::route('/create'),
+            'edit' => Pages\EditRoadmap::route('/{record}/edit'),
         ];
     }
 }

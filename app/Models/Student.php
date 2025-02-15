@@ -29,4 +29,8 @@ class Student extends Model
     {
         return $this->hasMany(MateriMurid::class);
     }
+
+    public function studentRoadmap(){
+        return $this->hasMany(StudentRoadmap::class);
+    }
 }
