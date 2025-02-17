@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoadmapController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,9 @@ Route::post('/dashboard/kelas/{kelas}', [KelasController::class, 'apply'])->name
 Route::get('/dashboard/roadmap', [RoadmapController::class, 'index'])->name('roadmap')->middleware('auth');
 Route::get('/dashboard/roadmap/{id}', [RoadmapController::class, 'show'])->name('roadmap.show')->middleware('auth');
 
+// PROFILE
+Route::get('/dashboard/profile', [ProfileController::class, 'show'])->name('profile.show')->middleware('auth');
+Route::post('/material/{materi}/complete', [ProfileController::class, 'markAsCompleted'])->name('material.complete');
 
 Route::get('/', function () {
     return view('landing');

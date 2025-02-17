@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('materis', function (Blueprint $table) {
             $table->id();
+            $table->string('judul_materi');
             $table->string('video_url')->nullable();
             $table->string('pdf_url')->nullable();
             $table->foreignId('kelas_id')->constrained()->onDelete('cascade');

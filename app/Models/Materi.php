@@ -11,6 +11,7 @@ class Materi extends Model
     use HasFactory;
 
     protected $fillable = [
+        'judul_materi',
         'video_url',
         'pdf_url',
         'kelas_id'

@@ -6,6 +6,7 @@ use App\Filament\Resources\MateriResource\Pages;
 use App\Filament\Resources\MateriResource\RelationManagers;
 use App\Models\Materi;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -25,12 +26,15 @@ class MateriResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('judul_materi')
+                    ->maxLength(255)
+                    ->default(null),
                 Forms\Components\TextInput::make('video_url')
                     ->maxLength(255)
                     ->default(null),
-                Forms\Components\TextInput::make('pdf_url')
-                    ->maxLength(255)
-                    ->default(null),
+                FileUpload::make('pdf_url')
+                    ->required()
+                    ->acceptedFileTypes(['application/pdf']),
                 Forms\Components\Select::make('kelas_id')
                     ->required()
                     ->relationship('kelas', 'nama_kelas')
