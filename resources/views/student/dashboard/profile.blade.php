@@ -17,7 +17,7 @@
             <h3 class="text-3xl font-semibold"> Applied Classes</h3>
         </div>
 
-        <ul class="border-4 border-t-red-700 border-b-pink-700 border-l-red-600 border-r-pink-700 rounded-xl p-4">
+        <ul class="border-2 border-t-red-700 border-b-pink-700 border-l-red-600 border-r-pink-700 rounded-xl p-4">
             @foreach($appliedClass as $kelas)
                 <li class=" p-6 mb-6 rounded-xl shadow-lg  duration-300">
                     <div class="flex items-center gap-3 mb-4">
@@ -42,7 +42,7 @@
                                     <a href="{{ $material->video_url }}" target="_blank" class="text-orange-400 hover:text-orange-300 text-sm fa-solid fa-video">
                                         <span class="ml-2">Video</span>
                                     </a>
-                                    <a href="{{ $material->pdf_url }}" target="_blank" class="text-pink-400 hover:text-pink-300 text-sm fa-solid fa-file-pdf">
+                                    <a href="{{ asset('storage/' . $material->pdf_url) }}" target="_blank" class="text-pink-400 hover:text-pink-300 text-sm fa-solid fa-file-pdf">
                                         <span class="ml-2">PDF</span>
                                     </a>
                                 </div>

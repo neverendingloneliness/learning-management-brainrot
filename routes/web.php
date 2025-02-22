@@ -22,6 +22,7 @@ Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('regi
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 // KELAS ROUTE
@@ -39,4 +40,4 @@ Route::post('/material/{materi}/complete', [ProfileController::class, 'markAsCom
 
 Route::get('/', function () {
     return view('landing');
-});
+})->name('landing');

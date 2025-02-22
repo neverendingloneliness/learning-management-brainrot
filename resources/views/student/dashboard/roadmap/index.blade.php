@@ -11,8 +11,12 @@
 </head>
 <body class="bg-black">
     @include('component.student.navstudent')
-    <div class="px-32">
-        <div class="grid grid-cols-5 gap-10 mt-20">
+    <div class="px-32 ">
+        <div class=" mt-12 flex items-center gap-3 mb-6">
+            <h3 class="text-red-500 font-bold fa-solid fa-road text-3xl"></h3>
+            <h3 class="text-3xl text-white font-semibold"> Roadmaps</h3>
+        </div>
+        <div class="border-2 border-t-red-700 border-b-pink-700 border-l-red-600 border-r-pink-700 rounded-xl p-4 grid grid-cols-5 gap-10 ">
             @foreach ($roadmap as $item )
                 <div class="relative max-w-xs mx-auto bg-black  rounded-xl overflow-hidden">
 

@@ -12,5 +12,12 @@
             </a>
         </li>
     </ul>
-    <a href="{{route('profile.show')}}" class="fa-regular fa-user text-white"></a>
+    <div class="flex items-center gap-10">
+        <a href="{{route('profile.show')}}" class="fa-regular fa-user text-white"></a>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="text-white fa-solid fa-door-open ">
+            </button>
+        </form>
+    </div>
 </nav>
